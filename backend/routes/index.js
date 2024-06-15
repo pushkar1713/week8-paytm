@@ -16,11 +16,10 @@ const signupBody = zod.object({
 });
 
 router.post("/user/signup", async (req, res) => {
-  const body = res.body;
-  const { sucess } = signupBody.safeParse(body);
-  if (!sucess) {
-    res.json({
-      msg: "the email is already taken/ incorrect inputs",
+  const obj = signupBody.safeParse(req.body);
+  if (!obj.success) {
+    return res.status(411).json({
+      msg: "incorrect inputs",
     });
   }
 
@@ -29,8 +28,8 @@ router.post("/user/signup", async (req, res) => {
   });
 
   if (existingUser) {
-    res.status(411).json({
-      msg: "the email is already taken/ incorrect inputs",
+    return res.status(411).json({
+      msg: "the email is already taken",
     });
   }
 
@@ -62,9 +61,9 @@ router.post("/user/signup", async (req, res) => {
 });
 
 const udatedBody = zod.object({
-  lastName: zod.string.optional(),
-  password: zod.string.optional(),
-  firstName: zod.string.optional(),
+  lastName: zod.string().optional(),
+  password: zod.string().optional(),
+  firstName: zod.string().optional(),
 });
 
 router.put("/user", authMiddleware, async (req, res) => {

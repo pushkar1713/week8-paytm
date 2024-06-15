@@ -1,6 +1,6 @@
 const { Mongoose } = require("mongoose");
 
-const mongoose = reqire("mongoose");
+const mongoose = require("mongoose");
 
 main().catch((err) => console.log(err));
 
