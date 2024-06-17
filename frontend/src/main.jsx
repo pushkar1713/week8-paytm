@@ -3,6 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import ErrorComp from "./pages/errorComp";
+import Header from "./pages/header";
+import Footer from "./pages/footer";
+import HomePage from "./pages/homepage";
+import { SignUp } from "./pages/signup";
+import { SignIn } from "./pages/signin";
 
 const AppLayout = () => {
   return (
@@ -21,24 +27,26 @@ const appRouter = createBrowserRouter([
     errorElement: <ErrorComp />,
     children: [
       {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
         path: "/signup", // parentPath/{path} => localhost:1244/about
-        element: <Signup />,
-        children: [
-          {
-            path: "signin",
-            element: <Signin />, // parentPath/{path} => localhost:1244/about/profile
-          },
-        ],
+        element: <SignUp />,
       },
       {
-        path: "/dashboard",
-        element: <Dashboard />,
+        path: "/signin",
+        element: <SignIn />, // parentPath/{path} => localhost:1244/about/profile
       },
+      // {
+      //   path: "/dashboard",
+      //   element: <Dashboard />,
+      // },
 
-      {
-        path: "/send",
-        element: <SendMoney />,
-      },
+      // {
+      //   path: "/send",
+      //   element: <SendMoney />,
+      // },
     ],
   },
 ]);
