@@ -9,6 +9,8 @@ import Footer from "./pages/footer";
 import HomePage from "./pages/homepage";
 import { SignUp } from "./pages/signup";
 import { SignIn } from "./pages/signin";
+import { SendMoney } from "./pages/sendMoney";
+import { Dashboard } from "./pages/dashboard";
 
 const AppLayout = () => {
   return (
@@ -38,15 +40,15 @@ const appRouter = createBrowserRouter([
         path: "/signin",
         element: <SignIn />, // parentPath/{path} => localhost:1244/about/profile
       },
-      // {
-      //   path: "/dashboard",
-      //   element: <Dashboard />,
-      // },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      },
 
-      // {
-      //   path: "/send",
-      //   element: <SendMoney />,
-      // },
+      {
+        path: "/send",
+        element: <SendMoney />,
+      },
     ],
   },
 ]);
