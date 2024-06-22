@@ -60,6 +60,45 @@ router.post("/user/signup", async (req, res) => {
   });
 });
 
+const signinBody = zod.object({
+  username: zod.string().email(),
+  password: zod.string(),
+});
+
+router.post("/user/signin", async (req, res) => {
+  const obj = signinBody.safeParse(req.body);
+  if (!obj.success) {
+    return res.status(411).json({
+      msg: "incorrect inputs",
+    });
+  }
+
+  const user = await User.findOne({
+    username: req.body.username,
+    password: req.body.password,
+  });
+
+  if (user) {
+    const token = jwt.sign(
+      {
+        userId: user._id,
+      },
+      JWT_SECRET
+    );
+
+    res.json({
+      token: token,
+      msg: "signin successful",
+    });
+
+    return;
+  }
+
+  res.status(411).json({
+    msg: "error while logging in",
+  });
+});
+
 const udatedBody = zod.object({
   lastName: zod.string().optional(),
   password: zod.string().optional(),

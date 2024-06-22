@@ -1,10 +1,18 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <div className="flex bg-green-300 justify-around">
-      <h1 className="flex m-2 p-2">payment's app</h1>
+      <Link to={"/"}>
+        <h1 className="flex m-2 p-2">बटुआ</h1>
+      </Link>
       <ul className="flex">
-        <li className="m-2 p-2">signin</li>
-        <li className="m-2 p-2">contact us</li>
+        <Link to={"/signin"}>
+          <li className="m-2 p-2">Login</li>
+        </Link>
+        <a href="https://github.com/pushkar1713/week8-paytm">
+          <li className="m-2 p-2">Github</li>
+        </a>
       </ul>
     </div>
   );
