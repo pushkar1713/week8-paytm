@@ -27,9 +27,9 @@ export const Dashboard = () => {
     console.log(balance);
   }, []);
   return (
-    <div>
+    <div className="bg-[#e8f2ee]">
       <Appbar name={name} />
-      <div className="m-8">
+      <div className="m-8 bg-[#e8f2ee]">
         <Balance value={balance} />
         <Users />
       </div>

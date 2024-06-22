@@ -9,7 +9,7 @@ export const SendMoney = () => {
   const [amount, setAmount] = useState(0);
 
   return (
-    <div class="flex justify-center h-screen bg-gray-100">
+    <div class="flex justify-center h-screen bg-[#e8f2ee]">
       <div className="h-full flex flex-col justify-center">
         <div class="border h-min text-card-foreground max-w-md p-4 space-y-8 w-96 bg-white shadow-lg rounded-lg">
           <div class="flex flex-col space-y-1.5 p-6 mb-[-30px]">

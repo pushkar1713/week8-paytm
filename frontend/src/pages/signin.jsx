@@ -15,7 +15,7 @@ export const SignIn = () => {
   // const { setUser } = useContext(UserInfo);
 
   return (
-    <div className="h-screen bg-slate-300 w-screen flex justify-center">
+    <div className="h-screen bg-[#e8f2ee] w-screen flex justify-center">
       <div className="flex flex-col justify-center">
         <div className="rounded-lg bg-white w-80 text-center p-2 h-max px-4">
           <Heading label={"Sign In"} />
