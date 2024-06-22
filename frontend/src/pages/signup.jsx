@@ -53,7 +53,7 @@ export const SignUp = () => {
               label={"Sign Up"}
               onClick={async () => {
                 const response = await axios.post(
-                  "http://localhost:3000/api/v1/user/signup",
+                  "https://week8-paytm.onrender.com/api/v1/user/signup",
                   {
                     username,
                     firstName,
