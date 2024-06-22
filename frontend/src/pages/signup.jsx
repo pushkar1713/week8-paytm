@@ -5,12 +5,14 @@ import { Button } from "../components/button";
 import BottomText from "../components/bottomText";
 import { useState } from "react";
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="h-screen bg-slate-300 w-screen flex justify-center">
@@ -61,6 +63,7 @@ export const SignUp = () => {
                 );
 
                 localStorage.setItem("token", response.data.token);
+                navigate("/dashboard");
               }}
             />
           </div>

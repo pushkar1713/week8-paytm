@@ -3,12 +3,16 @@ import SubHeading from "../components/subHeading";
 import InputBox from "../components/inputBox";
 import { Button } from "../components/button";
 import BottomText from "../components/bottomText";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
+// import { UserInfo } from "../util/usercontext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const Navigate = useNavigate();
+  // const { setUser } = useContext(UserInfo);
 
   return (
     <div className="h-screen bg-slate-300 w-screen flex justify-center">
@@ -43,6 +47,10 @@ export const SignIn = () => {
                 );
 
                 localStorage.setItem("token", response.data.token);
+                localStorage.setItem("name", response.data.firstname);
+                Navigate("/dashboard");
+
+                // setUser({ username: email });
                 console.log("signed in successfully");
               }}
             />
